@@ -15,7 +15,7 @@
     def peek
       puts my_array.last
     end
-  end
+end
 
   class Queue 
 
@@ -36,3 +36,33 @@
         puts my_queue.last
     end
 end
+
+class Map
+    attr_reader :my_map
+    def initialize
+        @my_map = [] 
+    end
+
+
+    def set(key,value)
+        my_map.unshift([key,value])
+    end
+
+    def get(key)
+        my_map.each do |ele|
+            ele.each do |k|
+                if key == k 
+                    return ele[-1] 
+                end
+            end
+        end
+    end
+
+
+end
+
+
+#my_map = [[k1, v1], [k2, v2], [k3, v2], ...].
+
+#set(key, value)
+#get(key), delete(key), show
