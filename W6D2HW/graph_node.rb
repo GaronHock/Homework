@@ -13,7 +13,7 @@ def bfs(starting_node, target_value)
   visited = Set.new()
 
   until queue.empty?
-    root = queue.shift unless visited.include?(node)
+    root = queue.shift unless visited.include?(root)
         if root.val == target_value
             return root 
         end
@@ -24,6 +24,16 @@ def bfs(starting_node, target_value)
   end
   nil
 end
+a = GraphNode.new('a')
+b = GraphNode.new('b')
+c = GraphNode.new('c')
+d = GraphNode.new('d')
+e = GraphNode.new('e')
+f = GraphNode.new('f')
+a.neighbors = [b, c, e]
+c.neighbors = [b, d]
+e.neighbors = [a]
+f.neighbors = [e]
 
 
 
