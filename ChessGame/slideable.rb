@@ -21,27 +21,22 @@ end
 
 def find_path(dx, dy)
     moves = []
-    startx, starty = pos 
+    currentx, currenty = pos 
     loop do
-    currentx = startx + dx 
-    currenty = starty + dy  
+    currentx += dx
+    currenty += dy  
 
-        current_pos = [currentx,currenty] 
-        break unless board.valid_move?(current_pos)
-        if board.empty?(current_pos)
-            moves << current_pos
+        pos = [currentx, currenty] 
+        break unless board.valid_move?(pos)
+        if board.empty?(pos)
+            moves << pos
         else
-            moves << current_pos if board[current_pos].color != color 
+            moves << pos if board[pos].color != color 
             break 
         end
     end
 
     moves 
 end
-
-
-
-
-
 
 end
