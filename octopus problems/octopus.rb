@@ -70,3 +70,14 @@ p fish.dominant_octopus_merge_sort
 # The octopus can hold on to the longest fish that you have found so far
 #  while stepping through the array only once.
 
+def clever_octopus(arr)
+  longest = ""
+  arr.each do |ele|
+    if ele.length > ele.length - 1 
+      longest = ele  
+    end
+  end
+    longest
+
+end
+p clever_octopus(fish)
