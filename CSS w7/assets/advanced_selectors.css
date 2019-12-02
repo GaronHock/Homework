@@ -34,8 +34,8 @@ header > img {
   list-style: square inside;
 }
 
-ol {
-  list-style: upper-roman inside;
+ol li:last-child{
+  color: green;
 }
 
 .user_review h4 {
@@ -44,3 +44,43 @@ ol {
 }
 
 
+/* * Given a pre-filled HTML skeleton, 
+write CSS selectors to add specific styles to specific html tags, classes, and ids */
+
+/* h1{
+  background: red;
+} */
+
+
+
+
+/* * Given an HTML skeleton, utilize the > selector in CSS to select all p elements 
+that are children of the element with 
+* id index and give them all a font-size of 18px and background color of red 
+(or any other basic CSS properties) */
+/*#div1 > .innercontents  child selector */
+
+#description > p{
+  font-size: 18px;
+  background-color: red;
+}
+
+/** Use the :last-child selector to give the last item in an ordered list a color of green*/
+
+/* header img:first-child {
+    width: 100px
+} */
+ 
+
+/* Use the + selector to select the first sibling element of the h1 tag and give it a 1px solid black border*/
+/* It is Adjacent sibling combinator. It combines two sequences of simple selectors
+ having the same parent and the second one must come IMMEDIATELY after the first.
+
+?
+div + p {  
+   color: green;  
+}  */
+
+/* h2 + .user_review {
+  border-top: 100px solid black;
+} */
