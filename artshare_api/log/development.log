@@ -1,0 +1,4 @@
+  [1m[35m (248.3ms)[0m  [1m[35mCREATE DATABASE "artshare_api_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (161.8ms)[0m  [1m[35mCREATE DATABASE "artshare_api_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
