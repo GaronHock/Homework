@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>NinetyNineCats</title>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700" rel="stylesheet">
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+  </head>
+
+  <body>
+    <nav class="main-nav">
+    <h1><a href="<%= cats_url %>">99 Cats</a></h1>
+    <div>
+    <% if current_user.nil? %>
+      <a href="<%= new_session_url %>">Sign in</a>
+      <a href="<%= new_user_url %>">Sign up</a>
+    <% else %>
+      <%= current_user.username %>
+      <form action="<%= session_url %>" method="post">
+       <%= auth_token %>
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" value="Logout">
+      </form>
+    <% end %>
+    </div>
+    </nav>
+    <main>
+      <%= yield %>
+    </main>
+  </body>
+ <footer>
+  <p>This is our 99 Cats site. Please feel free to browse!</p>
+
+  <%= yield :footer %>
+</footer>
+</html>
+
+<!--Now, let's say we want to add a footer on our application.html.erb layout. 
+We want our footer to display a paragraph describing our site on every page of our site.
+ In addition, we want it to display a line describing the particular page we are on. This 
+ is a perfect time to use Rails's content_for method.
+
+First, create a footer section in your
+ application.html.erb at the end of the body tag, and write in a paragraph describing your site. 
+ Verify that this shows up on every page as you navigate around in localhost.
+
+Next, let's add a second yield tag to insert the custom footer content within the new footer section.
+ It should look something like this:-->
