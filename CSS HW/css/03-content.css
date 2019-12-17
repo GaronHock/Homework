@@ -1,0 +1,27 @@
+/* PHASE 3: Content */
+
+.content {
+    background-color: white;
+    margin-left: 50px;
+    margin-right: 50px;
+    vertical-align: middle;
+}
+
+.content-sidebar {
+    width: 200px;
+    float: left;
+}
+
+.content-main {
+    width: 620px;
+    float: left;
+    padding-left: 200px;
+}
+
+.content h1 {
+
+}
+
+.content p {
+
+}
