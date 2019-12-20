@@ -1,0 +1,26 @@
+/* PHASE 2: Notifications */
+/* .badge{
+      background: 
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+} */
+
+
+.badge{
+    display: flex;
+
+}
+select{
+    display: none
+}
+.badge:hover select{
+    display:block
+}
+
+.badge span{
+  background: #000;
+  border-radius: 60%;
+  position: relative;
+  padding: 5px
+}
