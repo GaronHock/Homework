@@ -1,0 +1,42 @@
+h1 {
+    text-align: center;
+}
+
+ul {
+    display: flex;
+    flex-wrap: wrap;
+    width: 600px;
+    height: 600px;
+    justify-content: center;
+    margin: auto;
+    border: solid 10px black;
+    padding: 0px;
+}
+
+li {
+    width: 180px;
+    height: 180px;
+    list-style-type: none;
+    border: solid 10px black;
+    background: gray;
+}
+
+li:hover {
+    background: yellow;
+}
+
+.x:after,
+.o:after {
+    font-size: 100px;
+    width: 100%;
+    padding-left: 65px;
+}
+
+.x:after {
+    content: "x";
+}
+
+.o:after {
+    content: "o";
+}
+

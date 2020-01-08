@@ -1,0 +1,48 @@
+/* PHASE 9: Forms */
+/* .thumb {
+    display: flex;
+    flex-direction: row;
+} */
+
+.form {
+    display: flex;
+    padding: 25px;
+    border: solid 2px;
+    background: lightgray;
+    justify-content: space-evenly;
+}
+
+.form-thumb {
+    
+}
+
+.input {
+    display: block;
+}
+
+.input > label {
+    display: flex;
+    justify-content: center;
+}
+
+#form-title {
+    padding: 10px;
+    border: solid 2px;
+}
+
+.input > textarea {
+    /* height: 500px; */
+    width: 100%;
+    padding: 20px;
+}
+
+.submit {
+    display: flex;
+    padding: 5px;
+    border: solid 2px;
+}
+
+.button-alternative {
+    display: flex;
+    padding-left: 50px;
+}
