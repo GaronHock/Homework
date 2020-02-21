@@ -1,0 +1,5 @@
+docker build . -t kluaa/nginx
+
+docker image inspect kluaa/nginx
+
+docker container run --name nginx -d -p 80:80 kluaa/nginx
