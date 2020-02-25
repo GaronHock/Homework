@@ -1,0 +1,32 @@
+npm init --y
+npm install express mongoose body-parser
+npm install -D nodemon
+node index.js ----starts server
+
+Start your server and try to change the Hello World message in index.js, save the 
+file, and refresh the page. 
+You'll notice that the message does not change. Let's change that behavior by adding
+Nodemon to watch for changes.
+
+Open package.json and find the following line:
+
+"scripts": {
+  "test": "echo \"Error: no test specified\" && exit 1"
+}
+
+We don't actually need the "test" script. Delete it and replace it with the following code so that your 
+scripts line looks like this:
+
+"scripts": {
+  "start": "node index.js",
+  "dev": "nodemon index.js"
+}
+
+Running npm run start will accomplish the same result as before. However, 
+if you instead run npm run dev, you'll notice that the server will watch for changes 
+and log a success message. If you try the same thing as before - having your server
+ running while changing the "Hello World" message - you'll see Nodemon
+ will stop and restart the server for you. Once you refresh the web page your changes will be reflected!
+
+
+ npm install graphql express-graphql 
