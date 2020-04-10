@@ -318,7 +318,7 @@ Function maxProfit(prices){
 
 
 
-	
+
 	For (let i = 0; i < prices.length; i++) {
 array.push(prices[i])
 if(array[array.length - 1] < array[i]
@@ -328,6 +328,10 @@ if(array[array.length - 1] < array[i]
 } 
 
 }
+
+
+
+
 Return sum;
 }
 
