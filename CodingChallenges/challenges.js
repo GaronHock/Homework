@@ -399,4 +399,99 @@ var isIsomorphic = function (string1, string2) {
 };
 
 
+Write a program to check whether a given number is an ugly number.
+Ugly numbers are positive numbers whose prime factors only include 2, 3,  and/or 5.
+Example 1:
+Input: 6
+Output: true
+Explanation: 6 = 2 × 3
+Example 2:
+Input: 8
+Output: true
+Explanation: 8 = 2 × 2 × 2
+
+Example 3:
+Input: 14
+Output: false 
+Explanation: 14 is not ugly since it includes another prime factor 7.
+
+Note:
+1 is typically treated as an ugly number.
+Input is within the 32-bit signed integer range: [−231,  231 − 1].
+/**
+ * @param {number} num
+ * @return {boolean}
+ */
+
+
+/// get all the factors check if the factors include 2,3,5
+/// if true 
+/// check if any of the remaining factors are prime 
+/// if true 
+/// else false 
+
+
+
+
+
+
+var isUgly = function(num) {
+    let factors = [];
+	for (let i = 2; i <= num; i++){
+		if ( num % i === 0) factors.push(num)
+    }
+	for(let i = 0; i < factors.length; i++){
+		if(factors[i] > 5 && isPrime(factors[i]) return false;
+}
+    return true;
+};
+
+var isPrime = function(num){ 
+	if (num < 2) return false; 
+	for (let i = 2; i < num; i++){
+		if (num % i === 0) return false;
+    }
+    return true;
+}
+
+var isUgly = function(num) {
+    if (num < 1) return false;
+    if (num >= 1 && num < 6) return true;
+    let factors = [];
+	for (let i = 2; i < num; i++){
+		if ( num % i === 0) factors.push(i)
+    }
+    if (factors.includes(2) || factors.includes(3) || factors.includes(5)) { 
+        for(let i = 0; i < factors.length; i++){
+            if(factors[i] > 5 && isPrime(factors[i])) return false;
+        }
+        return true;
+    }
+    return false;
+};
+var isPrime = function(num){ 
+	if (num < 2) return false; 
+	for (let i = 2; i < num; i++){
+		if (num % i === 0) return false;
+    }
+    return true;
+};
+
+var isUgly = function (num) {
+ if (num < 1) return false;
+ while (num > 1) {
+   if (num % 2 === 0) {
+     num = num / 2
+   } else if (num % 3 === 0) {
+     num = num / 3
+   } else if (num % 5 === 0) {
+     num = num / 5
+   } else {
+     return false
+   };
+ };
+ return true
+};
+
+
 
