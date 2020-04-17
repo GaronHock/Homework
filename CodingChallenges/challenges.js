@@ -349,3 +349,54 @@ Array[7, 1]
 4 
 [7 ,1, 5=
 
+
+
+Given two strings s and t, determine if they are isomorphic.
+Two strings are isomorphic if the characters in s can be replaced to get t.
+All occurrences of a character must be replaced with another character while preserving the order of characters. No two characters may map to the same character but a character may map to itself.
+Example 1:
+///map string one into an object
+///map string two into an object
+ 
+Eogog
+Aoddo
+ 
+ 
+ 
+ 
+Input: s = "egg", t = "add"
+Output: true
+Example 2:
+Input: s = "foo", t = "bar"
+Output: false
+Example 3:
+Input: s = "paper", t = "title"
+Output: true
+Note:
+You may assume both s and t have the same length.
+/**
+ * @param {string} s
+ * @param {string} t
+ * @return {boolean}
+ */
+var isIsomorphic = function (string1, string2) {
+  let object = {};
+  let newString = '';
+  for (let i = 0; i < t.length; i++) {
+    if (string1[i] != string2[i] && !(string1[i] in object) && !(Object.values(object).includes(string2[i]))) {
+      object[string1[i]] = string2[i]
+      newString += object[string1[i]]
+    } else if (string1[i] != string2[i] && string1[i] in object && !(Object.values(object).includes(string2[i]))) {
+      newString += object[string1[i]]
+    } else if (!(string1[i] in object)) {
+      object[string1[i]] = string2[i]
+      newString += object[string1[i]]
+    } else {
+      newString += object[string1[i]]
+    }
+  }
+  return newString === t
+};
+
+
+
