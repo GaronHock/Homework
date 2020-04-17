@@ -495,3 +495,61 @@ var isUgly = function (num) {
 
 
 
+
+mediumDiscussion Solutions 
+Word Split
+Have the function WordSplit(strArr) read the array of strings stored in strArr, which will contain 2 elements: the first element will be a sequence of characters, and the second element will be a long string of comma-separated words, in alphabetical order, that represents a dictionary of some arbitrary length. For example: strArr can be: ["hellocat", "apple,bat,cat,goodbye,hello,yellow,why"]. Your goal is to determine if the first element in the input can be split into two words, where both words exist in the dictionary that is provided in the second input. In this example, the first element can be split into two words: hello and cat because both of those words are in the dictionary.
+ 
+Your program should return the two words that exist in the dictionary separated by a comma. So for the example above, your program should return hello,cat. There will only be one correct way to split the first element of characters into two words. If there is no way to split string into two words that exist in the dictionary, return the string not possible. The first element itself will never exist in the dictionary as a real word.
+
+
+function WordSplit(strArr) {
+ let firstWord = strArr[0].split("")
+ let secondHalf = strArr[1].split("");
+ for (let i = 0; i < firstWord.length; i++){
+     if (secondHalf.includes(firstWord.slice(0,i)) && secondHalf.includes(firstWord.slice(i))){
+       return firstWord.slice(0,i) + "," + firstWord.slice(i)
+     }
+ }
+ return "not possible"
+}
+
+
+
+function WordSplit(strArr) {
+ let firstWord = strArr[0]
+ let secondHalf = strArr[1].split(",");
+ for (let i = 1; i <firstWord.length ; i++){
+     let firstPart = firstWord.slice(0,i)
+     let secondPart = firstWord.slice(i)
+     if (secondHalf.includes(firstPart) && secondHalf.includes(secondPart)){
+       return firstPart + "," + secondPart
+     }
+ }
+ return "not possible"
+}
+WordSplit(["hellocat", "hell,apple,bat,cat,goodbye,hello,yellow,why"])
+
+
+var WordSplit = function(strArr) {
+ let string = strArr[0];
+ let dictionary = strArr[1].split(",")
+ let change = true
+ 
+ while (change) {
+   change = false
+   for (let i = 0; i < dictionary.length; i++) {
+     if (dictionary[i].slice(0, 1) === string.slice(0, 1)) {
+       if (string.includes(dictionary[i])) {
+         string = string.replace(dictionary[i], '')
+         change = true
+       }
+     }
+   }
+ }
+ return string.length === 0
+}
+WordSplit(["hellocat", "hell,apple,bat,cat,goodbye,hello,yellow,why"])
+
+
+
