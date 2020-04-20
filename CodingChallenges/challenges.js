@@ -550,6 +550,21 @@ var WordSplit = function(strArr) {
  return string.length === 0
 }
 WordSplit(["hellocat", "hell,apple,bat,cat,goodbye,hello,yellow,why"])
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+
+    const twoSum = function(nums, target) {
+    const comp = {};
+    for (let i=0; i<nums.length; i++){
+        if (nums[i] in comp){          
+            return [ comp[nums[i] ] , i]
+        }
+        comp[target-nums[i]] = i      
+    }
+};
 
 
 
