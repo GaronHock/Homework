@@ -839,6 +839,23 @@ MinStack.prototype.getMin = function() {
  */
 
 
+var isAnagram = function(s, t) {
+    let letters = {};
+    
+    s.split("").forEach(char =>{
+        if (!letters[char]) letters[char] = 0;
+        letters[char] += 1;
+    })
+    t.split("").forEach(char =>{
+        if (!letters[char]) letters[char] = 0;
+        letters[char] -= 1;
+    })
+    
+    return Object.values(letters).every(letterCount =>{
+        return letterCount === 0
+    })
+};
+
 
 
 
