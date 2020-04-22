@@ -774,7 +774,17 @@ const reducer = (accumulator, item) => {
 const total = numbers.reduce(reducer, initialValue)
 
 
+var minimumTotal = function (triangle) {
+  const dpFunction = (prev, curr) => {
+    const level = [];
+    for (let j = 0; j < curr.length; j++) {
+      level[j] = Math.min(prev[j], prev[j + 1]) + curr[j];
+    }
+    return level;
+  };
 
+  return triangle.reverse().reduce(dpFunction).pop();
+};
 
 
 
