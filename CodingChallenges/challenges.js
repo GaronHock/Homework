@@ -857,6 +857,23 @@ var isAnagram = function(s, t) {
 };
 
 
+var containsNearbyDuplicate = function (nums, k) {
+  let numbersObject = {};
+  for (let i = 0; i < nums.length; i++) {
+    if (!(nums[i] in numbersObject)) {
+      numbersObject[nums[i]] = i;
+    } else if (i - k <= numbersObject[nums[i]]) {
+      return true;
+    } else {
+      numbersObject[nums[i]] = i;
+    }
+  }
+  return false;
+};
+
+
+
+
 
 
 
