@@ -884,6 +884,8 @@ function Consecutive(arr) {
   }
   return sum;
 }
+
+const Consecutive = (a) => Math.max(...a) - Math.min(...a) - (a.length - 1);
    
 // keep this function call here 
 console.log(Consecutive(readline()));
