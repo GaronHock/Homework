@@ -872,6 +872,28 @@ var containsNearbyDuplicate = function (nums, k) {
 };
 
 
+function Consecutive(arr) { 
+   arr.sort(function(a, b){return a-b});
+   let sum = 0;
+   first = arr[0];
+  while (first < arr[arr.length-1]){
+    if (!(arr.includes(first))){
+      sum += 1;
+    }
+    first++
+  }
+  return sum;
+}
+   
+// keep this function call here 
+console.log(Consecutive(readline()));
+
+///sort the array
+//loop through the array and unless the number is included in the
+//array add it to
+//the sum
+
+
 
 
 
