@@ -895,18 +895,23 @@ console.log(Consecutive(readline()));
 //array add it to
 //the sum
 
+
 function prodArray(arr) {
-  let prodArr = [];
-  for (let i = 0; i < arr.length; i++) {
-    let prodIdx = 1;
-    for (let j = 0; j < arr.length; j++) {
-      if (j !== i) {
-        prodIdx * arr[j];
-      }
-    }
-    prodArr.push(prodIdx);
-  }
-  return prodArr;
+	let prodArr = [];
+	for (let i = 0; i < arr.length; i++) {
+		let prodIdx = 1;
+		if (type of arr[i] === integer) {
+		for (let j = 0; j < arr.length; j++) {
+			if (j !== i) {
+				prodIdx * arr[j];
+				} else {
+					prodIdx = undefined;
+				}
+}
+		}
+		prodArr.push(prodIdx);
+}
+return prodArr
 }
 
 
