@@ -915,6 +915,15 @@ return prodArr
 }
 
 
+function FindIntersection(strArr) { 
+
+
+ let sorted = strArr.sort((a,b) => a - b)
+
+ return sorted
+
+}
+
 
 
 
