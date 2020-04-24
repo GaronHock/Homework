@@ -926,6 +926,26 @@ function FindIntersection(strArr) {
 
 
 
+function FindIntersection(strArr) { 
+
+  const duplicates = [];
+
+  let numbers = strArr
+                .join(",")
+                .split(",")
+                .map(Number)
+                .sort((a,b) => a-b)
+
+  for (let i = 0; i < numbers.length -1; i++){
+    if (numbers[i] == [numbers[i+1]]){
+      duplicates.push(numbers[i])
+    }
+  }
+  return duplicates.length ? duplicates.join(",") : false
+}
+
+
+
 
 
 
