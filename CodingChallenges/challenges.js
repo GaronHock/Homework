@@ -946,7 +946,21 @@ function FindIntersection(strArr) {
 
 
 
-
+function sF(strArr) {
+  let dupeObj = {};
+  let dupeStr = '';
+  for (i = 0; i < strArr[0].length; i++) {
+    if (strArr[0][i] !== ',' && strArr[0][i] !== ' ') {
+      dupeObj[strArr[0][i]] = true
+    }
+  }
+  for (i = 0; i < strArr[1].length; i++) {
+    if (strArr[1][i] in dupeObj) {
+      dupeStr += `${strArr[1][i]},`
+    }
+  }
+  return dupeStr.length ? dupeStr.slice(0, -1) : false
+}
 
 
 
