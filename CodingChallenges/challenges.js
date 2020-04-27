@@ -990,6 +990,9 @@ function Palindrome(str) {
 }
 
 
+
+
+
 function ExOh(str) { 
   let xCount = 0;
   let yCount = 0;
@@ -997,6 +1000,24 @@ function ExOh(str) {
     str[i] === 'x' ? xCount += 1: yCount += 1;
   }
   return xCount === yCount;
+}
+
+
+function DivisionStringified(num1,num2) { 
+  let answer = Math.round(num1 / num2).toString().split("");
+  let answer_array = []
+  let count = 0; 
+  for (let i = answer.length - 1; i >= 0; i--){
+    answer_array.unshift(answer[i])
+    count++;
+    //console.log(count)
+    if (count === 3 && i >= 1){
+      answer_array.unshift(",")
+      count = 0;
+    }
+  }
+
+  return answer_array.join("");
 }
    
 
