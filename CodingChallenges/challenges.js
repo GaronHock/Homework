@@ -1021,6 +1021,30 @@ function DivisionStringified(num1,num2) {
 }
    
 
+function MeanMode(arr) { 
+  let modeObj = {};
+  let mean = 0;
+
+  arr.forEach(num =>{
+    mean += num;
+    if (!(num in modeObj)){
+      modeObj[num] = 0;
+    }
+    modeObj[num] += 1;
+  })
+  let sortable = [];
+  for (let orgArrValue in modeObj){
+    sortable.push([orgArrValue, modeObj[orgArrValue]])
+  }
+  const sorted = sortable.sort((a,b) => a[1] - b[1]);
+  let mode = sorted[sorted.length - 1][0]
+
+   mean = Math.round(mean / arr.length);
+
+   return mean == mode ? 1 : 0
+}
+
+
 
 
 
