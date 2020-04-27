@@ -985,6 +985,11 @@ function Palindrome(str) {
 }
 
 
+function Palindrome(str) { 
+ return str.split(" ").join("") === str.split("").reverse().join("").split(" ").join("") 
+}
+
+
 
 
 
