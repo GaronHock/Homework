@@ -1072,6 +1072,25 @@ function SnakeCase(str){
 }
 
 
+function SumMultiplier(arr) { 
+  let doubleSum = 0;
+  arr.forEach(num =>{
+    doubleSum += num;
+  })
+
+  doubleSum = doubleSum * 2;
+
+  for (let i = 0; i < arr.length; i++){
+    for (let j = i + 1; j < arr.length; j++){
+      if (arr[i] * arr[j] >= doubleSum) return true;
+    }
+  }
+  
+  return false;
+}
+
+
+
 
 
 
