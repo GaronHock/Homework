@@ -962,6 +962,28 @@ function sF(strArr) {
   return dupeStr.length ? dupeStr.slice(0, -1) : false
 }
 
+function Palindrome(str) { 
+  let charObj = {};
+  let reversed = str.split("").reverse()//.join("")
+  str.split("").forEach(char =>{
+    if (!(char in charObj)){
+      charObj[char] = 0;
+    }
+    charObj[char] += 1;
+  })
+
+
+  reversed.forEach(char =>{
+    if (!(char in charObj)){
+      charObj[char] = 0;
+    }
+    charObj[char] -= 1;
+  })
+
+  return Object.values(charObj).every(letter => letter === 0)
+
+}
+
 
 
 
