@@ -990,6 +990,16 @@ function Palindrome(str) {
 }
 
 
+function ExOh(str) { 
+  let xCount = 0;
+  let yCount = 0;
+  for(let i = 0; i < str.length; i++){
+    str[i] === 'x' ? xCount += 1: yCount += 1;
+  }
+  return xCount === yCount;
+}
+   
+
 
 
 
