@@ -1058,6 +1058,20 @@ function DistinctCharacters(str) {
 }
 
 
+function SnakeCase(str){
+  let alpha = 'abcdefghijklmnopqrstuvwxyz'
+  let converted_str = ""
+  for (let i = 0; i < str.length; i++){
+    if (alpha.includes(str[i].toLowerCase())){
+      converted_str += str[i].toLowerCase()
+    }else if (!(alpha.includes(str[i]))){
+      converted_str += "_"
+    }
+  }
+  return converted_str
+}
+
+
 
 
 
