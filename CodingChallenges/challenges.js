@@ -1045,6 +1045,20 @@ function MeanMode(arr) {
 }
 
 
+function DistinctCharacters(str) { 
+  const charObject = {};
+
+  for (let i = 0; i < str.length; i++){
+    if (!(str[i] in charObject)){
+      charObject[str[i]] = 0;
+    }
+
+  }
+  return Object.keys(charObject).length >= 10 ? true : false;
+}
+
+
+
 
 
 
