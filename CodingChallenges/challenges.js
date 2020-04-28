@@ -1119,6 +1119,33 @@ function RemoveBrackets(str) {
 }
 
 
+function GCF(arr) { 
+  // arr.forEach(num =>{
+    
+  // })
+
+  let i = 1;
+  let j = 0;
+
+
+  let factors = {};
+  //const factors = [];
+  while (j < arr.length){
+    while(i <= Math.max(...arr)){
+      if (arr[j] % i === 0){
+        if (!(i in factors)){
+          factors[i] = 0;
+        }
+        factors[i] += 1;
+      }
+      i++;
+    }
+    j++;
+  }
+  return factors;
+}
+
+
 
 
 
