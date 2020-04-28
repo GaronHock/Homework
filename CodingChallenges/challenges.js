@@ -1108,6 +1108,18 @@ function FizzBuzz(num) {
   return fizzBuzzString;
 }
 
+function RemoveBrackets(str) { 
+  let countLefts = 0;
+  let countRights = 0;
+
+  for (let i = 0; i < str.length; i++){
+    str[i] === "(" ? countLefts += 1 : countRights += 1;
+  }
+  return countLefts > countRights ? countLefts - countRights : countRights - countLefts;
+}
+
+
+
 
 
 
