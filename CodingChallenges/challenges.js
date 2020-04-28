@@ -1090,6 +1090,25 @@ function SumMultiplier(arr) {
 }
 
 
+function FizzBuzz(num) { 
+  let count = 1;
+  let fizzBuzzString = "";
+  while (count <= num){
+    if (count % 3 === 0 && count % 5 !== 0){
+      fizzBuzzString += "Fizz ";
+    } else if (count % 5 === 0 && count % 3 !== 0){
+      fizzBuzzString += "Buzz "
+    } else if (count % 3 === 0 && count % 5 === 0){
+      fizzBuzzString += "FizzBuzz "
+    } else {
+      fizzBuzzString += `${count} `
+    }
+    count ++;
+  }
+  return fizzBuzzString;
+}
+
+
 
 
 
