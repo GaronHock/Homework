@@ -1158,6 +1158,26 @@ function GCF(arr) {
   }
   return factors
 }
+
+
+function GCF(arr) { 
+  const factors = {};
+  for (let j = 0; j < arr.length; j++){
+    for (let i = 1; i <= Math.max(...arr); i++){
+      if (arr[j] % i === 0 && !(i in factors)){
+        factors[i] = 1;
+      }else if (arr[j] % i === 0 && (i in factors))
+      factors[i] += 1;
+    }
+  }
+  
+  const sortable = [];
+  for (let int in factors){
+    sortable.push([int, factors[int]])
+  }
+  return parseInt(sortable.sort((a,b) => a[1] - b[1])[sortable.length - 1][0])
+
+}
    
 
 
