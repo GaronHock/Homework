@@ -1146,6 +1146,21 @@ function GCF(arr) {
 }
 
 
+function GCF(arr) { 
+  const factors = {};
+  for (let j = 0; j < arr.length; j++){
+    for (let i = 1; i < Math.max(...arr); i++){
+      if (arr[j] % i === 0 && !(i in factors)){
+        factors[i] = 0;
+      }
+      factors[i] += 1;
+    }
+  }
+  return factors
+}
+   
+
+
 
 
 
