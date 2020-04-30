@@ -1194,6 +1194,26 @@ function Superincreasing(arr) {
 }
 
 
+function PalindromeSwapper(str) { 
+
+  //return str.split("").reverse().join("")
+
+  for (let i = 0; i < str.length - 1; i++){
+    let tmp = str[i + 1] /// tmp = e
+    str[i + 1] = str[i] /// e = h 
+    console.log(str[i])
+    console.log(str[i + 1])
+    str[i] = tmp; /// 
+       console.log(str[i])
+    console.log(str)
+    if ( str === str.split("").reverse().join("")){
+      return str
+    }
+  }
+  return -1;
+  
+}
+
 
 
 
