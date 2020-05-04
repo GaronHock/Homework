@@ -1215,6 +1215,22 @@ function PalindromeSwapper(str) {
 }
 
 
+function ArrayAdditionI(arr) {
+  var max = Math.max(...arr);
+  arr.splice(arr.indexOf(max), 1);
+  for (var i = 0; i < arr.length; i++) {
+      var total = arr[i];
+      for (var j = 0; j != i && j < arr.length; j++) {
+          total += arr[j];
+          if (total == max) {
+              return "true";
+          }
+      }
+  }
+  return "false";
+}
+
+
 
 
 
