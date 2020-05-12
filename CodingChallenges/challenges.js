@@ -1233,32 +1233,70 @@
 
 
 
+// function TimeDifference(strArr) {
+//   const militaryTimesArray = [];
+
+//   for (let i = 0; i < strArr.length; i++) {
+//     militaryTimesArray.push(convertTime(strArr[i]))
+//   }
+
+//   return militaryTimesArray;
+// }
+
+
+// function convertTime(str) {
+//   let newStr = "";
+//   if (str.includes("am") && str.slice(0, 2) === "12") {
+//     newStr += "00"
+//   } else if (str.includes("am")) {
+//     newStr += str.split(":")[0]
+//   } else {
+//     let newTime = parseInt(str.split(":")[0]) + 12;
+//     newStr = newTime.toString();
+//   }
+//   newStr += str.slice(-4, -2);
+//   return parseInt(newStr)
+// }
+
+
+// console.log(TimeDifference(["12:00am", "1:30pm"]))
+
+
 function TimeDifference(strArr) {
-  const militaryTimesArray = [];
+  let militaryTimesArray = [];
 
   for (let i = 0; i < strArr.length; i++) {
     militaryTimesArray.push(convertTime(strArr[i]))
   }
+  militaryTimesArray = militaryTimesArray.sort((a, b) => b - a)
 
-  return militaryTimesArray;
+
+  // return militaryTimesArray;
+  const differences = [];
+  for (let i = 0; i < militaryTimesArray.length - 1; i++) {
+    for (let j = i + 1; j < militaryTimesArray.length; j++) {
+      differences.push(militaryTimesArray[i] - militaryTimesArray[j])
+    }
+  }
+  // return differences/ 100 * 60
+  const converted = [];
+  for (let i = 0; i < differences.length; i++) {
+    converted.push(differences[i] / 100 * 60)
+  }
+  return Math.ceil(converted.sort((a, b) => a - b)[0])
 }
-
-
 function convertTime(str) {
   let newStr = "";
   if (str.includes("am") && str.slice(0, 2) === "12") {
     newStr += "00"
   } else if (str.includes("am")) {
     newStr += str.split(":")[0]
+  } else if (str.includes("pm" && "12")) {
+    newStr += "12"
   } else {
-    let newTime = parseInt(str.split(":")[0]) + 12;
-    newStr = newTime.toString();
+    newStr = (parseInt(str.split(":")[0]) + 12).toString();
   }
   newStr += str.slice(-4, -2);
   return parseInt(newStr)
 }
-
-
-console.log(TimeDifference(["12:00am", "1:30pm"]))
-
 
