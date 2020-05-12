@@ -757,482 +757,508 @@
 
 
 /* this is our initial value i.e. the starting point*/
-const initialValue = 0;
+// const initialValue = 0;
 
-/* numbers array */
-const numbers = [5, 10, 15];
+// /* numbers array */
+// const numbers = [5, 10, 15];
 
-/* reducer method that takes in the accumulator and next item */
-const reducer = (accumulator, item) => {
-    console.log(accumulator);
-    console.log(item);
-  return accumulator + item;
-};
+// /* reducer method that takes in the accumulator and next item */
+// const reducer = (accumulator, item) => {
+//     console.log(accumulator);
+//     console.log(item);
+//   return accumulator + item;
+// };
 
-/* we give the reduce method our reducer function
-  and our initial value */
-const total = numbers.reduce(reducer, initialValue)
-
-
-var minimumTotal = function (triangle) {
-  const dpFunction = (prev, curr) => {
-    const level = [];
-    for (let j = 0; j < curr.length; j++) {
-      level[j] = Math.min(prev[j], prev[j + 1]) + curr[j];
-    }
-    return level;
-  };
-
-  return triangle.reverse().reduce(dpFunction).pop();
-};
+// /* we give the reduce method our reducer function
+//   and our initial value */
+// const total = numbers.reduce(reducer, initialValue)
 
 
-/**
- * initialize your data structure here.
- */
-var MinStack = function() {
-    this.minStack = [];
-    this.stack = [];
-};
+// var minimumTotal = function (triangle) {
+//   const dpFunction = (prev, curr) => {
+//     const level = [];
+//     for (let j = 0; j < curr.length; j++) {
+//       level[j] = Math.min(prev[j], prev[j + 1]) + curr[j];
+//     }
+//     return level;
+//   };
 
-/** 
- * @param {number} x
- * @return {void}
- */
-MinStack.prototype.push = function(x) {
-    this.stack.push(x);
-    if(!this.minStack.length || x <= this.minStack[this.minStack.length - 1]){
-        this.minStack.push(x);
-    }
-};
-
-/**
- * @return {void}
- */
-MinStack.prototype.pop = function() {
-    if (this.stack[this.stack.length -1] === this.minStack[this.minStack.length -1]){
-        this.minStack.pop();
-    }
-    this.stack.pop();
-};
-/**
- * @return {number}
- */
-MinStack.prototype.top = function() {
-    return this.stack[this.stack.length - 1];
-};
-
-/**
- * @return {number}
- */
-MinStack.prototype.getMin = function() {
-    return this.minStack[this.minStack.length -1]
-};
-
-/** 
- * Your MinStack object will be instantiated and called as such:
- * var obj = new MinStack()
- * obj.push(x)
- * obj.pop()
- * var param_3 = obj.top()
- * var param_4 = obj.getMin()
- */
+//   return triangle.reverse().reduce(dpFunction).pop();
+// };
 
 
-var isAnagram = function(s, t) {
-    let letters = {};
+// /**
+//  * initialize your data structure here.
+//  */
+// var MinStack = function() {
+//     this.minStack = [];
+//     this.stack = [];
+// };
+
+// /** 
+//  * @param {number} x
+//  * @return {void}
+//  */
+// MinStack.prototype.push = function(x) {
+//     this.stack.push(x);
+//     if(!this.minStack.length || x <= this.minStack[this.minStack.length - 1]){
+//         this.minStack.push(x);
+//     }
+// };
+
+// /**
+//  * @return {void}
+//  */
+// MinStack.prototype.pop = function() {
+//     if (this.stack[this.stack.length -1] === this.minStack[this.minStack.length -1]){
+//         this.minStack.pop();
+//     }
+//     this.stack.pop();
+// };
+// /**
+//  * @return {number}
+//  */
+// MinStack.prototype.top = function() {
+//     return this.stack[this.stack.length - 1];
+// };
+
+// /**
+//  * @return {number}
+//  */
+// MinStack.prototype.getMin = function() {
+//     return this.minStack[this.minStack.length -1]
+// };
+
+// /** 
+//  * Your MinStack object will be instantiated and called as such:
+//  * var obj = new MinStack()
+//  * obj.push(x)
+//  * obj.pop()
+//  * var param_3 = obj.top()
+//  * var param_4 = obj.getMin()
+//  */
+
+
+// var isAnagram = function(s, t) {
+//     let letters = {};
     
-    s.split("").forEach(char =>{
-        if (!letters[char]) letters[char] = 0;
-        letters[char] += 1;
-    })
-    t.split("").forEach(char =>{
-        if (!letters[char]) letters[char] = 0;
-        letters[char] -= 1;
-    })
+//     s.split("").forEach(char =>{
+//         if (!letters[char]) letters[char] = 0;
+//         letters[char] += 1;
+//     })
+//     t.split("").forEach(char =>{
+//         if (!letters[char]) letters[char] = 0;
+//         letters[char] -= 1;
+//     })
     
-    return Object.values(letters).every(letterCount =>{
-        return letterCount === 0
-    })
-};
+//     return Object.values(letters).every(letterCount =>{
+//         return letterCount === 0
+//     })
+// };
 
 
-var containsNearbyDuplicate = function (nums, k) {
-  let numbersObject = {};
-  for (let i = 0; i < nums.length; i++) {
-    if (!(nums[i] in numbersObject)) {
-      numbersObject[nums[i]] = i;
-    } else if (i - k <= numbersObject[nums[i]]) {
-      return true;
-    } else {
-      numbersObject[nums[i]] = i;
-    }
-  }
-  return false;
-};
+// var containsNearbyDuplicate = function (nums, k) {
+//   let numbersObject = {};
+//   for (let i = 0; i < nums.length; i++) {
+//     if (!(nums[i] in numbersObject)) {
+//       numbersObject[nums[i]] = i;
+//     } else if (i - k <= numbersObject[nums[i]]) {
+//       return true;
+//     } else {
+//       numbersObject[nums[i]] = i;
+//     }
+//   }
+//   return false;
+// };
 
 
-function Consecutive(arr) { 
-   arr.sort(function(a, b){return a-b});
-   let sum = 0;
-   first = arr[0];
-  while (first < arr[arr.length-1]){
-    if (!(arr.includes(first))){
-      sum += 1;
-    }
-    first++
-  }
-  return sum;
-}
+// function Consecutive(arr) { 
+//    arr.sort(function(a, b){return a-b});
+//    let sum = 0;
+//    first = arr[0];
+//   while (first < arr[arr.length-1]){
+//     if (!(arr.includes(first))){
+//       sum += 1;
+//     }
+//     first++
+//   }
+//   return sum;
+// }
 
-const Consecutive = (a) => Math.max(...a) - Math.min(...a) - (a.length - 1);
+// const Consecutive = (a) => Math.max(...a) - Math.min(...a) - (a.length - 1);
    
-// keep this function call here 
-console.log(Consecutive(readline()));
+// // keep this function call here 
+// console.log(Consecutive(readline()));
 
-///sort the array
-//loop through the array and unless the number is included in the
-//array add it to
-//the sum
-
-
-function prodArray(arr) {
-	let prodArr = [];
-	for (let i = 0; i < arr.length; i++) {
-		let prodIdx = 1;
-		if (type of arr[i] === integer) {
-		for (let j = 0; j < arr.length; j++) {
-			if (j !== i) {
-				prodIdx * arr[j];
-				} else {
-					prodIdx = undefined;
-				}
-}
-		}
-		prodArr.push(prodIdx);
-}
-return prodArr
-}
+// ///sort the array
+// //loop through the array and unless the number is included in the
+// //array add it to
+// //the sum
 
 
-function FindIntersection(strArr) { 
+// function prodArray(arr) {
+// 	let prodArr = [];
+// 	for (let i = 0; i < arr.length; i++) {
+// 		let prodIdx = 1;
+// 		if (type of arr[i] === integer) {
+// 		for (let j = 0; j < arr.length; j++) {
+// 			if (j !== i) {
+// 				prodIdx * arr[j];
+// 				} else {
+// 					prodIdx = undefined;
+// 				}
+// }
+// 		}
+// 		prodArr.push(prodIdx);
+// }
+// return prodArr
+// }
 
 
- let sorted = strArr.sort((a,b) => a - b)
-
- return sorted
-
-}
+// function FindIntersection(strArr) { 
 
 
+//  let sorted = strArr.sort((a,b) => a - b)
 
-function FindIntersection(strArr) { 
+//  return sorted
 
-  const duplicates = [];
-
-  let numbers = strArr
-                .join(",")
-                .split(",")
-                .map(Number)
-                .sort((a,b) => a-b)
-
-  for (let i = 0; i < numbers.length -1; i++){
-    if (numbers[i] == [numbers[i+1]]){
-      duplicates.push(numbers[i])
-    }
-  }
-  return duplicates.length ? duplicates.join(",") : false
-}
+// }
 
 
 
-function sF(strArr) {
-  let dupeObj = {};
-  let dupeStr = '';
-  for (i = 0; i < strArr[0].length; i++) {
-    if (strArr[0][i] !== ',' && strArr[0][i] !== ' ') {
-      dupeObj[strArr[0][i]] = true
-    }
-  }
-  for (i = 0; i < strArr[1].length; i++) {
-    if (strArr[1][i] in dupeObj) {
-      dupeStr += `${strArr[1][i]},`
-    }
-  }
-  return dupeStr.length ? dupeStr.slice(0, -1) : false
-}
+// function FindIntersection(strArr) { 
 
-function Palindrome(str) { 
-  let charObj = {};
-  let reversed = str.split("").reverse()//.join("")
-  str.split("").forEach(char =>{
-    if (!(char in charObj)){
-      charObj[char] = 0;
-    }
-    charObj[char] += 1;
-  })
+//   const duplicates = [];
 
+//   let numbers = strArr
+//                 .join(",")
+//                 .split(",")
+//                 .map(Number)
+//                 .sort((a,b) => a-b)
 
-  reversed.forEach(char =>{
-    if (!(char in charObj)){
-      charObj[char] = 0;
-    }
-    charObj[char] -= 1;
-  })
-
-  return Object.values(charObj).every(letter => letter === 0)
-
-}
-
-
-function Palindrome(str) { 
- return str.split(" ").join("") === str.split("").reverse().join("").split(" ").join("") 
-}
+//   for (let i = 0; i < numbers.length -1; i++){
+//     if (numbers[i] == [numbers[i+1]]){
+//       duplicates.push(numbers[i])
+//     }
+//   }
+//   return duplicates.length ? duplicates.join(",") : false
+// }
 
 
 
+// function sF(strArr) {
+//   let dupeObj = {};
+//   let dupeStr = '';
+//   for (i = 0; i < strArr[0].length; i++) {
+//     if (strArr[0][i] !== ',' && strArr[0][i] !== ' ') {
+//       dupeObj[strArr[0][i]] = true
+//     }
+//   }
+//   for (i = 0; i < strArr[1].length; i++) {
+//     if (strArr[1][i] in dupeObj) {
+//       dupeStr += `${strArr[1][i]},`
+//     }
+//   }
+//   return dupeStr.length ? dupeStr.slice(0, -1) : false
+// }
+
+// function Palindrome(str) { 
+//   let charObj = {};
+//   let reversed = str.split("").reverse()//.join("")
+//   str.split("").forEach(char =>{
+//     if (!(char in charObj)){
+//       charObj[char] = 0;
+//     }
+//     charObj[char] += 1;
+//   })
 
 
-function ExOh(str) { 
-  let xCount = 0;
-  let yCount = 0;
-  for(let i = 0; i < str.length; i++){
-    str[i] === 'x' ? xCount += 1: yCount += 1;
-  }
-  return xCount === yCount;
-}
+//   reversed.forEach(char =>{
+//     if (!(char in charObj)){
+//       charObj[char] = 0;
+//     }
+//     charObj[char] -= 1;
+//   })
+
+//   return Object.values(charObj).every(letter => letter === 0)
+
+// }
 
 
-function DivisionStringified(num1,num2) { 
-  let answer = Math.round(num1 / num2).toString().split("");
-  let answer_array = []
-  let count = 0; 
-  for (let i = answer.length - 1; i >= 0; i--){
-    answer_array.unshift(answer[i])
-    count++;
-    //console.log(count)
-    if (count === 3 && i >= 1){
-      answer_array.unshift(",")
-      count = 0;
-    }
-  }
-
-  return answer_array.join("");
-}
-   
-
-function MeanMode(arr) { 
-  let modeObj = {};
-  let mean = 0;
-
-  arr.forEach(num =>{
-    mean += num;
-    if (!(num in modeObj)){
-      modeObj[num] = 0;
-    }
-    modeObj[num] += 1;
-  })
-  let sortable = [];
-  for (let orgArrValue in modeObj){
-    sortable.push([orgArrValue, modeObj[orgArrValue]])
-  }
-  const sorted = sortable.sort((a,b) => a[1] - b[1]);
-  let mode = sorted[sorted.length - 1][0]
-
-   mean = Math.round(mean / arr.length);
-
-   return mean == mode ? 1 : 0
-}
+// function Palindrome(str) { 
+//  return str.split(" ").join("") === str.split("").reverse().join("").split(" ").join("") 
+// }
 
 
-function DistinctCharacters(str) { 
-  const charObject = {};
-
-  for (let i = 0; i < str.length; i++){
-    if (!(str[i] in charObject)){
-      charObject[str[i]] = 0;
-    }
-
-  }
-  return Object.keys(charObject).length >= 10 ? true : false;
-}
 
 
-function SnakeCase(str){
-  let alpha = 'abcdefghijklmnopqrstuvwxyz'
-  let converted_str = ""
-  for (let i = 0; i < str.length; i++){
-    if (alpha.includes(str[i].toLowerCase())){
-      converted_str += str[i].toLowerCase()
-    }else if (!(alpha.includes(str[i]))){
-      converted_str += "_"
-    }
-  }
-  return converted_str
-}
+
+// function ExOh(str) { 
+//   let xCount = 0;
+//   let yCount = 0;
+//   for(let i = 0; i < str.length; i++){
+//     str[i] === 'x' ? xCount += 1: yCount += 1;
+//   }
+//   return xCount === yCount;
+// }
 
 
-function SumMultiplier(arr) { 
-  let doubleSum = 0;
-  arr.forEach(num =>{
-    doubleSum += num;
-  })
+// function DivisionStringified(num1,num2) { 
+//   let answer = Math.round(num1 / num2).toString().split("");
+//   let answer_array = []
+//   let count = 0; 
+//   for (let i = answer.length - 1; i >= 0; i--){
+//     answer_array.unshift(answer[i])
+//     count++;
+//     //console.log(count)
+//     if (count === 3 && i >= 1){
+//       answer_array.unshift(",")
+//       count = 0;
+//     }
+//   }
 
-  doubleSum = doubleSum * 2;
-
-  for (let i = 0; i < arr.length; i++){
-    for (let j = i + 1; j < arr.length; j++){
-      if (arr[i] * arr[j] >= doubleSum) return true;
-    }
-  }
-  
-  return false;
-}
-
-
-function FizzBuzz(num) { 
-  let count = 1;
-  let fizzBuzzString = "";
-  while (count <= num){
-    if (count % 3 === 0 && count % 5 !== 0){
-      fizzBuzzString += "Fizz ";
-    } else if (count % 5 === 0 && count % 3 !== 0){
-      fizzBuzzString += "Buzz "
-    } else if (count % 3 === 0 && count % 5 === 0){
-      fizzBuzzString += "FizzBuzz "
-    } else {
-      fizzBuzzString += `${count} `
-    }
-    count ++;
-  }
-  return fizzBuzzString;
-}
-
-function RemoveBrackets(str) { 
-  let countLefts = 0;
-  let countRights = 0;
-
-  for (let i = 0; i < str.length; i++){
-    str[i] === "(" ? countLefts += 1 : countRights += 1;
-  }
-  return countLefts > countRights ? countLefts - countRights : countRights - countLefts;
-}
-
-
-function GCF(arr) { 
-  // arr.forEach(num =>{
-    
-  // })
-
-  let i = 1;
-  let j = 0;
-
-
-  let factors = {};
-  //const factors = [];
-  while (j < arr.length){
-    while(i <= Math.max(...arr)){
-      if (arr[j] % i === 0){
-        if (!(i in factors)){
-          factors[i] = 0;
-        }
-        factors[i] += 1;
-      }
-      i++;
-    }
-    j++;
-  }
-  return factors;
-}
-
-
-function GCF(arr) { 
-  const factors = {};
-  for (let j = 0; j < arr.length; j++){
-    for (let i = 1; i < Math.max(...arr); i++){
-      if (arr[j] % i === 0 && !(i in factors)){
-        factors[i] = 0;
-      }
-      factors[i] += 1;
-    }
-  }
-  return factors
-}
-
-
-function GCF(arr) { 
-  const factors = {};
-  for (let j = 0; j < arr.length; j++){
-    for (let i = 1; i <= Math.max(...arr); i++){
-      if (arr[j] % i === 0 && !(i in factors)){
-        factors[i] = 1;
-      }else if (arr[j] % i === 0 && (i in factors))
-      factors[i] += 1;
-    }
-  }
-  
-  const sortable = [];
-  for (let int in factors){
-    sortable.push([int, factors[int]])
-  }
-  return parseInt(sortable.sort((a,b) => a[1] - b[1])[sortable.length - 1][0])
-
-}
+//   return answer_array.join("");
+// }
    
 
-function Superincreasing(arr) { 
-  let sum = arr[0];
-  for (let i = 1; i < arr.length; i++){
-    if (arr[i] > sum) sum += arr[i]
-    else{
-      return false;
-    }
-  }
+// function MeanMode(arr) { 
+//   let modeObj = {};
+//   let mean = 0;
 
-  return true;
+//   arr.forEach(num =>{
+//     mean += num;
+//     if (!(num in modeObj)){
+//       modeObj[num] = 0;
+//     }
+//     modeObj[num] += 1;
+//   })
+//   let sortable = [];
+//   for (let orgArrValue in modeObj){
+//     sortable.push([orgArrValue, modeObj[orgArrValue]])
+//   }
+//   const sorted = sortable.sort((a,b) => a[1] - b[1]);
+//   let mode = sorted[sorted.length - 1][0]
 
-}
+//    mean = Math.round(mean / arr.length);
+
+//    return mean == mode ? 1 : 0
+// }
 
 
-function PalindromeSwapper(str) { 
+// function DistinctCharacters(str) { 
+//   const charObject = {};
 
-  //return str.split("").reverse().join("")
+//   for (let i = 0; i < str.length; i++){
+//     if (!(str[i] in charObject)){
+//       charObject[str[i]] = 0;
+//     }
 
-  for (let i = 0; i < str.length - 1; i++){
-    let tmp = str[i + 1] /// tmp = e
-    str[i + 1] = str[i] /// e = h 
-    console.log(str[i])
-    console.log(str[i + 1])
-    str[i] = tmp; /// 
-       console.log(str[i])
-    console.log(str)
-    if ( str === str.split("").reverse().join("")){
-      return str
-    }
-  }
-  return -1;
+//   }
+//   return Object.keys(charObject).length >= 10 ? true : false;
+// }
+
+
+// function SnakeCase(str){
+//   let alpha = 'abcdefghijklmnopqrstuvwxyz'
+//   let converted_str = ""
+//   for (let i = 0; i < str.length; i++){
+//     if (alpha.includes(str[i].toLowerCase())){
+//       converted_str += str[i].toLowerCase()
+//     }else if (!(alpha.includes(str[i]))){
+//       converted_str += "_"
+//     }
+//   }
+//   return converted_str
+// }
+
+
+// function SumMultiplier(arr) { 
+//   let doubleSum = 0;
+//   arr.forEach(num =>{
+//     doubleSum += num;
+//   })
+
+//   doubleSum = doubleSum * 2;
+
+//   for (let i = 0; i < arr.length; i++){
+//     for (let j = i + 1; j < arr.length; j++){
+//       if (arr[i] * arr[j] >= doubleSum) return true;
+//     }
+//   }
   
-}
+//   return false;
+// }
 
 
-function ArrayAdditionI(arr) {
-  var max = Math.max(...arr);
-  arr.splice(arr.indexOf(max), 1);
-  for (var i = 0; i < arr.length; i++) {
-      var total = arr[i];
-      for (var j = 0; j != i && j < arr.length; j++) {
-          total += arr[j];
-          if (total == max) {
-              return "true";
-          }
-      }
+// function FizzBuzz(num) { 
+//   let count = 1;
+//   let fizzBuzzString = "";
+//   while (count <= num){
+//     if (count % 3 === 0 && count % 5 !== 0){
+//       fizzBuzzString += "Fizz ";
+//     } else if (count % 5 === 0 && count % 3 !== 0){
+//       fizzBuzzString += "Buzz "
+//     } else if (count % 3 === 0 && count % 5 === 0){
+//       fizzBuzzString += "FizzBuzz "
+//     } else {
+//       fizzBuzzString += `${count} `
+//     }
+//     count ++;
+//   }
+//   return fizzBuzzString;
+// }
+
+// function RemoveBrackets(str) { 
+//   let countLefts = 0;
+//   let countRights = 0;
+
+//   for (let i = 0; i < str.length; i++){
+//     str[i] === "(" ? countLefts += 1 : countRights += 1;
+//   }
+//   return countLefts > countRights ? countLefts - countRights : countRights - countLefts;
+// }
+
+
+// function GCF(arr) { 
+//   // arr.forEach(num =>{
+    
+//   // })
+
+//   let i = 1;
+//   let j = 0;
+
+
+//   let factors = {};
+//   //const factors = [];
+//   while (j < arr.length){
+//     while(i <= Math.max(...arr)){
+//       if (arr[j] % i === 0){
+//         if (!(i in factors)){
+//           factors[i] = 0;
+//         }
+//         factors[i] += 1;
+//       }
+//       i++;
+//     }
+//     j++;
+//   }
+//   return factors;
+// }
+
+
+// function GCF(arr) { 
+//   const factors = {};
+//   for (let j = 0; j < arr.length; j++){
+//     for (let i = 1; i < Math.max(...arr); i++){
+//       if (arr[j] % i === 0 && !(i in factors)){
+//         factors[i] = 0;
+//       }
+//       factors[i] += 1;
+//     }
+//   }
+//   return factors
+// }
+
+
+// function GCF(arr) { 
+//   const factors = {};
+//   for (let j = 0; j < arr.length; j++){
+//     for (let i = 1; i <= Math.max(...arr); i++){
+//       if (arr[j] % i === 0 && !(i in factors)){
+//         factors[i] = 1;
+//       }else if (arr[j] % i === 0 && (i in factors))
+//       factors[i] += 1;
+//     }
+//   }
+  
+//   const sortable = [];
+//   for (let int in factors){
+//     sortable.push([int, factors[int]])
+//   }
+//   return parseInt(sortable.sort((a,b) => a[1] - b[1])[sortable.length - 1][0])
+
+// }
+   
+
+// function Superincreasing(arr) { 
+//   let sum = arr[0];
+//   for (let i = 1; i < arr.length; i++){
+//     if (arr[i] > sum) sum += arr[i]
+//     else{
+//       return false;
+//     }
+//   }
+
+//   return true;
+
+// }
+
+
+// function PalindromeSwapper(str) { 
+
+//   //return str.split("").reverse().join("")
+
+//   for (let i = 0; i < str.length - 1; i++){
+//     let tmp = str[i + 1] /// tmp = e
+//     str[i + 1] = str[i] /// e = h 
+//     console.log(str[i])
+//     console.log(str[i + 1])
+//     str[i] = tmp; /// 
+//        console.log(str[i])
+//     console.log(str)
+//     if ( str === str.split("").reverse().join("")){
+//       return str
+//     }
+//   }
+//   return -1;
+  
+// }
+
+
+// function ArrayAdditionI(arr) {
+//   var max = Math.max(...arr);
+//   arr.splice(arr.indexOf(max), 1);
+//   for (var i = 0; i < arr.length; i++) {
+//       var total = arr[i];
+//       for (var j = 0; j != i && j < arr.length; j++) {
+//           total += arr[j];
+//           if (total == max) {
+//               return "true";
+//           }
+//       }
+//   }
+//   return "false";
+// }
+
+
+
+
+function TimeDifference(strArr) {
+  const militaryTimesArray = [];
+
+  for (let i = 0; i < strArr.length; i++) {
+    militaryTimesArray.push(convertTime(strArr[i]))
   }
-  return "false";
+
+  return militaryTimesArray;
 }
 
 
+function convertTime(str) {
+  let newStr = "";
+  if (str.includes("am") && str.slice(0, 2) === "12") {
+    newStr += "00"
+  } else if (str.includes("am")) {
+    newStr += str.split(":")[0]
+  } else {
+    let newTime = parseInt(str.split(":")[0]) + 12;
+    newStr = newTime.toString();
+  }
+  newStr += str.slice(-4, -2);
+  return parseInt(newStr)
+}
 
 
-
+console.log(TimeDifference(["12:00am", "1:30pm"]))
 
 
