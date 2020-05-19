@@ -1,0 +1,15 @@
+{
+  "name": "duckerfrontier",
+  "version": "1.0.0",
+  "description": "parsing CSV files and storing into database",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Garon Hock",
+  "license": "ISC",
+  "dependencies": {
+    "pg": "*",
+    "fast-csv": ""
+  }
+}
