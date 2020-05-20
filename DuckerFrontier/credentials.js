@@ -1,9 +1,9 @@
-const credentials = {
-  username: "Garon",
-  password: "hunter12",
+var credentials = {
+  // username: "Garon",
+  // password: "jw8s0F4",
   server: "localhost",
-  database: "TestinDB"
-}
+  database: "testindb1",
+};
 
 
 module.exports = credentials;
