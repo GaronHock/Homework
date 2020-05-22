@@ -1,0 +1,13 @@
+.years-data-outer-wrapper{
+  width: 400px;
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    position: relative;
+        left: 30%;
+}
+.specific-year-and-data-wrapper{
+  display: flex;
+    justify-content: space-between;
+    margin-top: 10%;
+}

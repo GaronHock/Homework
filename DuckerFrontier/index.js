@@ -1,8 +1,8 @@
-const db = require("../queries");
+const db = require("./queries");
 const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
-const port = 3000;
+const port = 5000;
 
 app.use(bodyParser.json());
 app.use(
@@ -16,6 +16,7 @@ app.get("/", (request, response) => {
 });
 
 app.get("/info", db.getAllInfo);
+app.get("/info/:id", db.getInfoById);
 
 app.listen(port, () => {
   console.log(`App running on port ${port}.`);

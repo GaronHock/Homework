@@ -1,0 +1,41 @@
+.specific-indicator-items{
+  margin-bottom: 20px;
+      font-weight: bold;
+    font-size: 1em;
+    transition: all 500ms;
+}
+
+.specific-indicator-items:hover{
+  cursor: pointer;
+    font-size:20px;
+    font-size-adjust: 20px;
+  filter: brightness(50%);
+}
+
+.indicator-wrapper{
+      display: inline-flex;
+    flex-direction: column;
+    align-items: baseline;
+    position: relative;
+    font-size: 15px;
+    margin-top: 20px;
+}
+
+.search-text-area{
+ width: 400px;
+    height: 15px;
+    /* border-radius: 5%; */
+    font-size: 20px;
+    padding: 8px;
+}
+
+/* #sname a {
+    font-weight: bold;
+    font-size: 4em;
+    transition: all 500ms;
+}
+    
+#sname a:hover {
+    font-size:88px;
+    font-size-adjust: 20px;
+} */
