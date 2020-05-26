@@ -1353,31 +1353,52 @@
 // console.log(TimeDifference(['12:00pm', "1:00pm"]))
 
 
+// function NumberSearch(str) {
+//   let alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+//   let numbers = "0123456789";
+//   const lettersArray = [];
+//   const numbersArray = [];
+//   for (let i = 0; i < str.length; i++) {
+//     if (alphabet.includes(str[i])) {
+//       lettersArray.push(str[i]);
+//     } else if (numbers.includes(str[i])) {
+//       numbersArray.push(str[i]);
+//     }
+//   }
+//   let strnumbers = numbersArray.join("");
+//   let numbersInArray = parseInt(strnumbers, 10);
+
+//   const finalNumbers = Array.from(numbersInArray.toString()).map(Number);
+
+//   let numberSum = 0;
+//   finalNumbers.forEach((number) => {
+//     numberSum += number;
+//   });
+
+//   if (numbersArray.length === 0) {
+//     return 0;
+//   } else {
+//     return Math.round(numberSum / lettersArray.length);
+//   }
+// }
+
+
 function NumberSearch(str) {
-  let alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  let numbers = "0123456789";
-  const lettersArray = [];
-  const numbersArray = [];
+  const numbers = "1234567890";
+  const alphabet = "abcdefghijklmnopqrstuvwxyz";
+
+  const numbers_array = [];
+  const alphabet_array = [];
   for (let i = 0; i < str.length; i++) {
-    if (alphabet.includes(str[i])) {
-      lettersArray.push(str[i]);
-    } else if (numbers.includes(str[i])) {
-      numbersArray.push(str[i]);
-    }
+    if (numbers.includes(str[i])) numbers_array.push(str[i]);
+    if (alphabet.toUpperCase().includes(str[i]) || alphabet.includes(str[i]))
+      alphabet_array.push(str[i]);
   }
-  let strnumbers = numbersArray.join("");
-  let numbersInArray = parseInt(strnumbers, 10);
-
-  const finalNumbers = Array.from(numbersInArray.toString()).map(Number);
-
-  let numberSum = 0;
-  finalNumbers.forEach((number) => {
-    numberSum += number;
-  });
-
-  if (numbersArray.length === 0) {
-    return 0;
-  } else {
-    return Math.round(numberSum / lettersArray.length);
+  const converted_numbers = numbers_array.map(Number);
+  let sum = 0;
+  for (let i = 0; i < converted_numbers.length; i++) {
+    sum += converted_numbers[i];
   }
+
+  return Math.floor(sum / alphabet_array.length);
 }
