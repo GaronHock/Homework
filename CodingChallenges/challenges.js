@@ -1312,42 +1312,72 @@
 // console.log(TimeDifference(['12:00pm', "1:00pm"]))
 
 
-function TimeDifference(strArr) {
-  let militaryTimesArray = [];
+// function TimeDifference(strArr) {
+//   let militaryTimesArray = [];
 
-  for (let i = 0; i < strArr.length; i++) {
-    militaryTimesArray.push(convertTime(strArr[i]))
-  }
-  militaryTimesArray = militaryTimesArray.sort((a, b) => b - a)
+//   for (let i = 0; i < strArr.length; i++) {
+//     militaryTimesArray.push(convertTime(strArr[i]))
+//   }
+//   militaryTimesArray = militaryTimesArray.sort((a, b) => b - a)
 
 
-  // return militaryTimesArray;
-  const differences = [];
-  for (let i = 0; i < militaryTimesArray.length - 1; i++) {
-    for (let j = i + 1; j < militaryTimesArray.length; j++) {
-      differences.push(militaryTimesArray[i] - militaryTimesArray[j])
+//   // return militaryTimesArray;
+//   const differences = [];
+//   for (let i = 0; i < militaryTimesArray.length - 1; i++) {
+//     for (let j = i + 1; j < militaryTimesArray.length; j++) {
+//       differences.push(militaryTimesArray[i] - militaryTimesArray[j])
+//     }
+//   }
+//   const converted = [];
+//   for (let i = 0; i < differences.length; i++) {
+//     converted.push(differences[i] / 100 * 60)
+//   }
+//   return Math.ceil(converted.sort((a, b) => a - b)[0])
+// }
+// function convertTime(str) {
+//   let newStr = "";
+//   if (str.includes("am") && str.slice(0, 2) === "12") {
+//     newStr += "00"
+//   } else if (str.includes("am")) {
+//     newStr += str.split(":")[0]
+//   } else if (str.includes("pm" && "12")) {
+//     newStr += "12"
+//   } else {
+//     newStr = (parseInt(str.split(":")[0]) + 12).toString();
+//   }
+//   newStr += str.slice(-4, -2);
+//   return parseInt(newStr)
+// }
+
+
+// console.log(TimeDifference(['12:00pm', "1:00pm"]))
+
+
+function NumberSearch(str) {
+  let alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  let numbers = "0123456789";
+  const lettersArray = [];
+  const numbersArray = [];
+  for (let i = 0; i < str.length; i++) {
+    if (alphabet.includes(str[i])) {
+      lettersArray.push(str[i]);
+    } else if (numbers.includes(str[i])) {
+      numbersArray.push(str[i]);
     }
   }
-  const converted = [];
-  for (let i = 0; i < differences.length; i++) {
-    converted.push(differences[i] / 100 * 60)
-  }
-  return Math.ceil(converted.sort((a, b) => a - b)[0])
-}
-function convertTime(str) {
-  let newStr = "";
-  if (str.includes("am") && str.slice(0, 2) === "12") {
-    newStr += "00"
-  } else if (str.includes("am")) {
-    newStr += str.split(":")[0]
-  } else if (str.includes("pm" && "12")) {
-    newStr += "12"
+  let strnumbers = numbersArray.join("");
+  let numbersInArray = parseInt(strnumbers, 10);
+
+  const finalNumbers = Array.from(numbersInArray.toString()).map(Number);
+
+  let numberSum = 0;
+  finalNumbers.forEach((number) => {
+    numberSum += number;
+  });
+
+  if (numbersArray.length === 0) {
+    return 0;
   } else {
-    newStr = (parseInt(str.split(":")[0]) + 12).toString();
+    return Math.round(numberSum / lettersArray.length);
   }
-  newStr += str.slice(-4, -2);
-  return parseInt(newStr)
 }
-
-
-console.log(TimeDifference(['12:00pm', "1:00pm"]))
