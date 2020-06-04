@@ -20,4 +20,6 @@ const searchPeopleString = searchPeople.toString();
 console.log(searchPeopleString);
 
 
-///Above I am converting a function to a string. Since it is now a string
+///Above I am converting a function to a string. Since it is now a string I can actually parse the parameters
+///to figure out the names of the expected parameters of the function
+///can make a decision based on what i seet ad
