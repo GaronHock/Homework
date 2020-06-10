@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-us" ng-app="myApp">
+<html lang="en-us">
     <head>
         <title>Learn and Understand AngularJS</title>
         <meta http-equiv="X-UA-Compatible" content="IE=Edge">
@@ -7,16 +7,13 @@
 
         <!-- load bootstrap and fontawesome via CDN -->
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <style>
             html, body, input, select, textarea
             {
-                font-size: 1.05em;
+                font-size: 1.05em !important;
             }
         </style>
-        
-        <!-- load angular via CDN -->
-        <script src="//code.angularjs.org/1.3.0-rc.1/angular.min.js"></script>
-        <script src="app.js"></script>
     </head>
     <body>
 
@@ -24,7 +21,7 @@
 			<nav class="navbar navbar-default">
 			<div class="container">
 				<div class="navbar-header">
-					<a class="navbar-brand" href="/">AngularJS</a>
+					<a class="navbar-brand" href="/">Dependency Injection</a>
 				</div>
 
 				<ul class="nav navbar-nav navbar-right">
@@ -35,20 +32,16 @@
 		</header>
 
         <div class="container">
-
-            <div ng-controller="mainController">
             
-                <div>
-                    <label>What is your twitter handle?</label>
-                    <input type="text" ng-model="handle"> <!--Now this can be bound to a specific variabe within the scope
-                    Whatever happens here will update the controller. and whatever happens in the controller will update 
-                on this side. Its 2-way data-->
+            <div class="row">
+                <div class="col-md-12">
+                    
+                    <input type="text" id="name" />
+                    
                 </div>
-            <hr>
-            <h1>Twitter.com/{{filtered()}}</h1>
             </div>
-            
+                
 		</div>
-
+    <script src="app.js"></script>
     </body>
 </html>

@@ -40,12 +40,13 @@
             
                 <div>
                     <label>What is your twitter handle?</label>
-                    <input type="text" ng-model="handle"> <!--Now this can be bound to a specific variabe within the scope
-                    Whatever happens here will update the controller. and whatever happens in the controller will update 
-                on this side. Its 2-way data-->
+                    <input type="text" ng-model="handle" />
                 </div>
-            <hr>
-            <h1>Twitter.com/{{filtered()}}</h1>
+                
+                <hr />
+                
+                <h1>twitter.com/{{ lowercasehandle() }}</h1>
+                
             </div>
             
 		</div>
